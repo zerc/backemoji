@@ -21,7 +21,7 @@ class Feedback(models.Model):
 
 
 class Choice(models.Model):
-    CHOICES = list(enumerate(("😡", "😔", "😐", "🙂", "🥰")))
+    CHOICES = list(enumerate(("😡", "😔", "😐", "🙂", "🥰", "💩")))
 
     name = models.CharField(unique=True, max_length=225, blank=False, null=False)
     rating = models.IntegerField(default=0, blank=False, null=False)
@@ -32,6 +32,7 @@ class Choice(models.Model):
 
     class Meta:
         unique_together = [("name", "rating", "emoji")]
+        ordering = ["rating"]
 
     def get_vote_url(self):
         return reverse(

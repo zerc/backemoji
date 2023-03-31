@@ -3,7 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
     <title>{% block title %}{% endblock %}</title>
+    <style type="text/css" media="screen">
+      .content {
+        text-align: center;
+      }
+      button {
+        border: none;
+        background: none;
+        font-size: 2em;
+      }
+      button:hover {
+        background: gray;
+      }
+    </style>
   </head>
-  <body>{% block content %}{% endblock %}</body>
+  <body>
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
 </html>

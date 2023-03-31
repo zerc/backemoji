@@ -6,7 +6,7 @@
 
 
 {% block content %}
-  {{ feedback.name }}
+  <h1>{{ feedback.name }}</h1>
   <form method="POST" action=".">
     {% csrf_token %}
     {% for choice in feedback.choices.all %}

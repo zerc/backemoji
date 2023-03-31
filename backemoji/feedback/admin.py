@@ -20,7 +20,7 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 @admin.register(Choice)
 class ChoiceAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("emoji", "rating", "name")
 
 
 @admin.register(Vote)
