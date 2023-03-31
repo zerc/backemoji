@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Feedback</title>
-  </head>
-  <body>
-    {{ feedback }}
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+  {{ feedback.name }}
+{% endblock %}
+
+
+{% block content %}
+  {{ feedback.name }}
+  <form method="POST" action=".">
+    {% csrf_token %}
+    {% for choice in feedback.choices.all %}
+      <button type="submit" name="choice_id" value="{{ choice.pk }}">
+        {{ choice.get_emoji_display }}
+      </button>
+    {% endfor %}
+  </form>
+{% endblock %}
